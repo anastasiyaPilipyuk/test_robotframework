@@ -1,0 +1,1866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230213 23:34:33.241" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Add Player Rf" source="C:\Users\Nastya\Documents\GitHub\test_robotframework\test_add_player_rf.robot">
+<test id="s1-t1" name="Add new player with max info" line="43">
+<kw name="Create List" library="BuiltIn">
+<var>@{youtubes}</var>
+<arg>https://www.youtube.com/@test1</arg>
+<arg>https://www.youtube.com/@test2</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230213 23:34:33.458" level="INFO">@{youtubes} = [ https://www.youtube.com/@test1 | https://www.youtube.com/@test2 ]</msg>
+<status status="PASS" starttime="20230213 23:34:33.458" endtime="20230213 23:34:33.458"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>@{languages}</var>
+<arg>Polish</arg>
+<arg>English</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230213 23:34:33.459" level="INFO">@{languages} = [ Polish | English ]</msg>
+<status status="PASS" starttime="20230213 23:34:33.458" endtime="20230213 23:34:33.459"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{PLAYERINFO}</var>
+<arg>email=player01@getnada.com</arg>
+<arg>name=Player01Name</arg>
+<arg>surname=Player01Surname</arg>
+<arg>phone=player01Phone</arg>
+<arg>weight=70</arg>
+<arg>height=190</arg>
+<arg>leg=Right leg</arg>
+<arg>age=02/25/1990</arg>
+<arg>club=Player01Club</arg>
+<arg>level=player01Level</arg>
+<arg>mainPosition=player01MainPosition</arg>
+<arg>secondPosition=player01SecondPosition</arg>
+<arg>district=Silesia</arg>
+<arg>achievements=player01Achievements</arg>
+<arg>youtubes=${youtubes}</arg>
+<arg>languages=${languages}</arg>
+<arg>webLaczy=ProfilePlayer01LNP</arg>
+<arg>web90=ProfilePlayer0190M</arg>
+<arg>webFB=NicknamePlayer01FB</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230213 23:34:33.460" level="INFO">&amp;{PLAYERINFO} = { email=player01@getnada.com | name=Player01Name | surname=Player01Surname | phone=player01Phone | weight=70 | height=190 | leg=Right leg | age=02/25/1990 | club=Player01Club | level=player01Level | m...</msg>
+<status status="PASS" starttime="20230213 23:34:33.459" endtime="20230213 23:34:33.460"/>
+</kw>
+<kw name="Loggin in" library="common">
+<arg>${DEFAULTUSER}</arg>
+<kw name="Open login page" library="common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230213 23:34:33.461" level="INFO">Opening browser 'CHROME' to base url 'https://scouts-test.futbolkolektyw.pl/en'.</msg>
+<status status="PASS" starttime="20230213 23:34:33.460" endtime="20230213 23:34:35.130"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel - sign in</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:35.134" level="INFO">Page title is 'Scouts panel - sign in'.</msg>
+<status status="PASS" starttime="20230213 23:34:35.130" endtime="20230213 23:34:35.134"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:33.460" endtime="20230213 23:34:35.134"/>
+</kw>
+<if>
+<branch type="IF" condition="'login' in $user">
+<kw name="Type in email" library="common">
+<arg>${user.login}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:login</arg>
+<arg>${login}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:35.137" level="INFO">Typing text 'user07@getnada.com' into text field 'id:login'.</msg>
+<status status="PASS" starttime="20230213 23:34:35.137" endtime="20230213 23:34:35.292"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.136" endtime="20230213 23:34:35.292"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.134" endtime="20230213 23:34:35.292"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:35.134" endtime="20230213 23:34:35.292"/>
+</if>
+<if>
+<branch type="IF" condition="'password' in $user">
+<kw name="Type in password" library="common">
+<arg>${user.password}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:35.294" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20230213 23:34:35.346" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230213 23:34:35.419" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230213 23:34:35.294" endtime="20230213 23:34:35.419"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.292" endtime="20230213 23:34:35.419"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.292" endtime="20230213 23:34:35.419"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:35.292" endtime="20230213 23:34:35.419"/>
+</if>
+<kw name="Click on the Sign in button" library="common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SIGNINBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:35.420" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:35.419" endtime="20230213 23:34:35.469"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.419" endtime="20230213 23:34:35.469"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:33.460" endtime="20230213 23:34:35.469"/>
+</kw>
+<kw name="Assert dashboard">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PAGELOGO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:35.470" endtime="20230213 23:34:37.636"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:37.641" level="INFO">Page title is 'Scouts panel'.</msg>
+<status status="PASS" starttime="20230213 23:34:37.637" endtime="20230213 23:34:37.641"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:35.470" endtime="20230213 23:34:37.641"/>
+</kw>
+<kw name="Click add player link">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDPLAYERBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:37.643" level="INFO">Clicking element 'xpath=(//div[@class='MuiCardContent-root'])[2]/a/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:37.643" endtime="20230213 23:34:37.698"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:37.641" endtime="20230213 23:34:37.699"/>
+</kw>
+<kw name="Fill player info">
+<arg>${PLAYERINFO}</arg>
+<kw name="Fill player email">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'email' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:37.701" endtime="20230213 23:34:37.790"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<arg>${player.email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:37.792" level="INFO">Typing text 'player01@getnada.com' into text field 'xpath=//input[@name='email']'.</msg>
+<status status="PASS" starttime="20230213 23:34:37.790" endtime="20230213 23:34:37.947"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:37.701" endtime="20230213 23:34:37.947"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:37.701" endtime="20230213 23:34:37.947"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:37.700" endtime="20230213 23:34:37.947"/>
+</kw>
+<kw name="Fill player name">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'name' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:37.948" endtime="20230213 23:34:37.971"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<arg>${player.name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:37.973" level="INFO">Typing text 'Player01Name' into text field 'xpath=//input[@name='name']'.</msg>
+<status status="PASS" starttime="20230213 23:34:37.972" endtime="20230213 23:34:38.118"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:37.948" endtime="20230213 23:34:38.118"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:37.948" endtime="20230213 23:34:38.118"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:37.948" endtime="20230213 23:34:38.118"/>
+</kw>
+<kw name="Fill player surname">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'surname' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SURNAME INPUT}</arg>
+<arg>${player.surname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.119" level="INFO">Typing text 'Player01Surname' into text field 'xpath=//input[@name='surname']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.119" endtime="20230213 23:34:38.268"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.118" endtime="20230213 23:34:38.268"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.118" endtime="20230213 23:34:38.268"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.118" endtime="20230213 23:34:38.268"/>
+</kw>
+<kw name="Fill player phone">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'phone' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PHONE INPUT}</arg>
+<arg>${player.phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.271" level="INFO">Typing text 'player01Phone' into text field 'xpath=//input[@name='phone']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.269" endtime="20230213 23:34:38.388"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.269" endtime="20230213 23:34:38.388"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.269" endtime="20230213 23:34:38.388"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.268" endtime="20230213 23:34:38.388"/>
+</kw>
+<kw name="Fill player weight">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'weight' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEIGHT INPUT}</arg>
+<arg>${player.weight}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.390" level="INFO">Typing text '70' into text field 'xpath=//input[@name='weight']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.389" endtime="20230213 23:34:38.479"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.388" endtime="20230213 23:34:38.479"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.388" endtime="20230213 23:34:38.479"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.388" endtime="20230213 23:34:38.479"/>
+</kw>
+<kw name="Fill player height">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'height' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${HEIGHT INPUT}</arg>
+<arg>${player.height}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.480" level="INFO">Typing text '190' into text field 'xpath=//input[@name='height']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.479" endtime="20230213 23:34:38.575"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.479" endtime="20230213 23:34:38.575"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.479" endtime="20230213 23:34:38.575"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.479" endtime="20230213 23:34:38.575"/>
+</kw>
+<kw name="Fill player age">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'age' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${AGE INPUT}</arg>
+<arg>${player.age}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.576" level="INFO">Typing text '02/25/1990' into text field 'xpath=//input[@name='age']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.575" endtime="20230213 23:34:38.677"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.575" endtime="20230213 23:34:38.677"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.575" endtime="20230213 23:34:38.677"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.575" endtime="20230213 23:34:38.677"/>
+</kw>
+<kw name="Fill player leg">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'leg' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG SELECT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.678" level="INFO">Clicking element 'xpath=//input[@id='leg']/parent::div/div'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.678" endtime="20230213 23:34:38.740"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.leg}&quot; == &quot;${LEFT LEG EN}&quot; or &quot;${player.leg}&quot; == &quot;${LEFT LEG PL}&quot;">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU LEFT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:38.742" endtime="20230213 23:34:38.742"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:38.740" endtime="20230213 23:34:38.742"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU RIGHT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.742" level="INFO">Clicking element 'xpath=//*[@id='menu-leg']/div[3]/ul/li[1]'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.742" endtime="20230213 23:34:38.797"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.742" endtime="20230213 23:34:38.797"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.740" endtime="20230213 23:34:38.797"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.677" endtime="20230213 23:34:38.797"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.677" endtime="20230213 23:34:38.797"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.677" endtime="20230213 23:34:38.797"/>
+</kw>
+<kw name="Fill player club">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'club' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CLUB INPUT}</arg>
+<arg>${player.club}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.800" level="INFO">Typing text 'Player01Club' into text field 'xpath=//input[@name='club']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.798" endtime="20230213 23:34:38.935"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.798" endtime="20230213 23:34:38.935"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.798" endtime="20230213 23:34:38.936"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.797" endtime="20230213 23:34:38.936"/>
+</kw>
+<kw name="Fill player level">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'level' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LEVEL INPUT}</arg>
+<arg>${player.level}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:38.938" level="INFO">Typing text 'player01Level' into text field 'xpath=//input[@name='level']'.</msg>
+<status status="PASS" starttime="20230213 23:34:38.936" endtime="20230213 23:34:39.077"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:38.936" endtime="20230213 23:34:39.077"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:38.936" endtime="20230213 23:34:39.077"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:38.936" endtime="20230213 23:34:39.077"/>
+</kw>
+<kw name="Fill player main position">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'mainPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${MAINPOS INPUT}</arg>
+<arg>${player.mainPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.078" level="INFO">Typing text 'player01MainPosition' into text field 'xpath=//input[@name='mainPosition']'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.077" endtime="20230213 23:34:39.242"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:39.077" endtime="20230213 23:34:39.242"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:39.077" endtime="20230213 23:34:39.242"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:39.077" endtime="20230213 23:34:39.242"/>
+</kw>
+<kw name="Fill player secondPosition">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'secondPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SECONDPOSITION INPUT}</arg>
+<arg>${player.secondPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.244" level="INFO">Typing text 'player01SecondPosition' into text field 'xpath=//input[@name='secondPosition']'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.243" endtime="20230213 23:34:39.401"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:39.242" endtime="20230213 23:34:39.401"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:39.242" endtime="20230213 23:34:39.401"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:39.242" endtime="20230213 23:34:39.401"/>
+</kw>
+<kw name="Fill player achievements">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'achievements' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ARCHIEVEMENTS INPUT}</arg>
+<arg>${player.achievements}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.402" level="INFO">Typing text 'player01Achievements' into text field 'xpath=// input[@name='achievements']'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.401" endtime="20230213 23:34:39.543"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:39.401" endtime="20230213 23:34:39.543"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:39.401" endtime="20230213 23:34:39.543"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:39.401" endtime="20230213 23:34:39.543"/>
+</kw>
+<kw name="Fill player youtubes">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'youtubes' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230213 23:34:39.544" level="INFO">${index} = 0</msg>
+<status status="PASS" starttime="20230213 23:34:39.544" endtime="20230213 23:34:39.544"/>
+</kw>
+<for flavor="IN">
+<var>${youtube}</var>
+<value>@{player.youtubes}</value>
+<iter>
+<var name="${youtube}">https://www.youtube.com/@test1</var>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD YOUTUBE BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.545" level="INFO">Clicking button 'xpath=//div[19]/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.544" endtime="20230213 23:34:39.608"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='webYT[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:39.609" level="INFO">${link} = //input[@name='webYT[0]']</msg>
+<status status="PASS" starttime="20230213 23:34:39.608" endtime="20230213 23:34:39.609"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:39.609" endtime="20230213 23:34:39.629"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${youtube}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.629" level="INFO">Typing text 'https://www.youtube.com/@test1' into text field '//input[@name='webYT[0]']'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.629" endtime="20230213 23:34:39.822"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 23:34:39.823" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20230213 23:34:39.822" endtime="20230213 23:34:39.823"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:39.544" endtime="20230213 23:34:39.823"/>
+</iter>
+<iter>
+<var name="${youtube}">https://www.youtube.com/@test2</var>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD YOUTUBE BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.823" level="INFO">Clicking button 'xpath=//div[19]/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.823" endtime="20230213 23:34:39.881"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='webYT[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:39.881" level="INFO">${link} = //input[@name='webYT[1]']</msg>
+<status status="PASS" starttime="20230213 23:34:39.881" endtime="20230213 23:34:39.881"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:39.881" endtime="20230213 23:34:39.912"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${youtube}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:39.913" level="INFO">Typing text 'https://www.youtube.com/@test2' into text field '//input[@name='webYT[1]']'.</msg>
+<status status="PASS" starttime="20230213 23:34:39.912" endtime="20230213 23:34:40.108"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 23:34:40.108" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20230213 23:34:40.108" endtime="20230213 23:34:40.108"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:39.823" endtime="20230213 23:34:40.108"/>
+</iter>
+<status status="PASS" starttime="20230213 23:34:39.544" endtime="20230213 23:34:40.108"/>
+</for>
+<status status="PASS" starttime="20230213 23:34:39.543" endtime="20230213 23:34:40.108"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:39.543" endtime="20230213 23:34:40.108"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:39.543" endtime="20230213 23:34:40.109"/>
+</kw>
+<kw name="Fill player languages">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'languages' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230213 23:34:40.109" level="INFO">${index} = 0</msg>
+<status status="PASS" starttime="20230213 23:34:40.109" endtime="20230213 23:34:40.109"/>
+</kw>
+<for flavor="IN">
+<var>${languages}</var>
+<value>@{player.languages}</value>
+<iter>
+<var name="${languages}">Polish</var>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD LANG BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.111" level="INFO">Clicking button 'xpath = //div[15]/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.110" endtime="20230213 23:34:40.181"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='languages[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:40.182" level="INFO">${link} = //input[@name='languages[0]']</msg>
+<status status="PASS" starttime="20230213 23:34:40.181" endtime="20230213 23:34:40.182"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:40.182" endtime="20230213 23:34:40.209"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${languages}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.210" level="INFO">Typing text 'Polish' into text field '//input[@name='languages[0]']'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.209" endtime="20230213 23:34:40.320"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 23:34:40.321" level="INFO">${index} = 1</msg>
+<status status="PASS" starttime="20230213 23:34:40.321" endtime="20230213 23:34:40.321"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.110" endtime="20230213 23:34:40.322"/>
+</iter>
+<iter>
+<var name="${languages}">English</var>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD LANG BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.323" level="INFO">Clicking button 'xpath = //div[15]/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.322" endtime="20230213 23:34:40.385"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='languages[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:40.385" level="INFO">${link} = //input[@name='languages[1]']</msg>
+<status status="PASS" starttime="20230213 23:34:40.385" endtime="20230213 23:34:40.385"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:40.385" endtime="20230213 23:34:40.409"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${languages}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.410" level="INFO">Typing text 'English' into text field '//input[@name='languages[1]']'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.409" endtime="20230213 23:34:40.525"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230213 23:34:40.525" level="INFO">${index} = 2</msg>
+<status status="PASS" starttime="20230213 23:34:40.525" endtime="20230213 23:34:40.525"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.322" endtime="20230213 23:34:40.525"/>
+</iter>
+<status status="PASS" starttime="20230213 23:34:40.110" endtime="20230213 23:34:40.525"/>
+</for>
+<status status="PASS" starttime="20230213 23:34:40.109" endtime="20230213 23:34:40.525"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.109" endtime="20230213 23:34:40.525"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.109" endtime="20230213 23:34:40.525"/>
+</kw>
+<kw name="Fill player district">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'district' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT TO CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.526" level="INFO">Clicking element 'xpath=//input[@name='district']/parent::div/div'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.526" endtime="20230213 23:34:40.587"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.district}&quot; == &quot;${SILESIA}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:40.588" endtime="20230213 23:34:40.612"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.612" level="INFO">Clicking element 'xpath=//*[@id='menu-district']/div[3]/ul/li[12]'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.612" endtime="20230213 23:34:40.674"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.587" endtime="20230213 23:34:40.675"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.587" endtime="20230213 23:34:40.675"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.526" endtime="20230213 23:34:40.675"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.526" endtime="20230213 23:34:40.675"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.525" endtime="20230213 23:34:40.675"/>
+</kw>
+<kw name="Fill player web laczy">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webLaczy' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB LACZY INPUT}</arg>
+<arg>${player.webLaczy}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.677" level="INFO">Typing text 'ProfilePlayer01LNP' into text field 'xpath=//input[@name='webLaczy']'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.676" endtime="20230213 23:34:40.837"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.675" endtime="20230213 23:34:40.837"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.675" endtime="20230213 23:34:40.837"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.675" endtime="20230213 23:34:40.837"/>
+</kw>
+<kw name="Fill player web90">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'web90' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB90 INPUT}</arg>
+<arg>${player.web90}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.840" level="INFO">Typing text 'ProfilePlayer0190M' into text field 'xpath=//input[@name='web90']'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.838" endtime="20230213 23:34:40.990"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.838" endtime="20230213 23:34:40.990"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.838" endtime="20230213 23:34:40.990"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.837" endtime="20230213 23:34:40.990"/>
+</kw>
+<kw name="Fill player webFB">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webFB' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEBFB INPUT}</arg>
+<arg>${player.webFB}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:40.994" level="INFO">Typing text 'NicknamePlayer01FB' into text field 'xpath=//input[@name='webFB']'.</msg>
+<status status="PASS" starttime="20230213 23:34:40.991" endtime="20230213 23:34:41.145"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:40.991" endtime="20230213 23:34:41.146"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:40.991" endtime="20230213 23:34:41.146"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:40.991" endtime="20230213 23:34:41.146"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:37.700" endtime="20230213 23:34:41.146"/>
+</kw>
+<kw name="Click On The Submit Button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMITBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:41.148" level="INFO">Clicking element 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:41.148" endtime="20230213 23:34:41.218"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:41.147" endtime="20230213 23:34:41.219"/>
+</kw>
+<kw name="Wait for save be complete">
+<arg>${PLAYERINFO}</arg>
+<arg>alert_TC_PP_01.png</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${editMessage}</var>
+<arg>Edit player ${player.name} ${player.surname}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:41.223" level="INFO">${editMessage} = Edit player Player01Name Player01Surname</msg>
+<status status="PASS" starttime="20230213 23:34:41.220" endtime="20230213 23:34:41.223"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:41.223" endtime="20230213 23:34:41.948"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${PAGETITLE}</arg>
+<arg>${editMessage}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230213 23:34:41.950" level="INFO">Verifying element 'xpath=//form/div[1]/div/span' contains exact text 'Edit player Player01Name Player01Surname'.</msg>
+<status status="PASS" starttime="20230213 23:34:41.948" endtime="20230213 23:34:41.984"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${screenshotName}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230213 23:34:42.179" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="alert_TC_PP_01.png"&gt;&lt;img src="alert_TC_PP_01.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230213 23:34:41.984" endtime="20230213 23:34:42.179"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:41.219" endtime="20230213 23:34:42.180"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230213 23:34:42.182" endtime="20230213 23:34:44.347"/>
+</kw>
+<doc>Test for checking adding a player with entering a maximum of information (English version)</doc>
+<status status="PASS" starttime="20230213 23:34:33.457" endtime="20230213 23:34:44.348"/>
+</test>
+<test id="s1-t2" name="Add new player with min info" line="73">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{PLAYERINFO}</var>
+<arg>name=PlayerMin01Name</arg>
+<arg>surname=PlayerMin01Surname</arg>
+<arg>age=02/25/1990</arg>
+<arg>mainPosition=playerMin01MainPosition</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230213 23:34:44.353" level="INFO">&amp;{PLAYERINFO} = { name=PlayerMin01Name | surname=PlayerMin01Surname | age=02/25/1990 | mainPosition=playerMin01MainPosition }</msg>
+<status status="PASS" starttime="20230213 23:34:44.352" endtime="20230213 23:34:44.353"/>
+</kw>
+<kw name="Loggin in" library="common">
+<arg>${DEFAULTUSER}</arg>
+<kw name="Open login page" library="common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230213 23:34:44.356" level="INFO">Opening browser 'CHROME' to base url 'https://scouts-test.futbolkolektyw.pl/en'.</msg>
+<status status="PASS" starttime="20230213 23:34:44.355" endtime="20230213 23:34:46.034"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel - sign in</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:46.040" level="INFO">Page title is 'Scouts panel - sign in'.</msg>
+<status status="PASS" starttime="20230213 23:34:46.034" endtime="20230213 23:34:46.040"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:44.355" endtime="20230213 23:34:46.041"/>
+</kw>
+<if>
+<branch type="IF" condition="'login' in $user">
+<kw name="Type in email" library="common">
+<arg>${user.login}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:login</arg>
+<arg>${login}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:46.045" level="INFO">Typing text 'user07@getnada.com' into text field 'id:login'.</msg>
+<status status="PASS" starttime="20230213 23:34:46.043" endtime="20230213 23:34:46.216"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.041" endtime="20230213 23:34:46.217"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.041" endtime="20230213 23:34:46.217"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:46.041" endtime="20230213 23:34:46.217"/>
+</if>
+<if>
+<branch type="IF" condition="'password' in $user">
+<kw name="Type in password" library="common">
+<arg>${user.password}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:46.220" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20230213 23:34:46.263" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230213 23:34:46.333" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230213 23:34:46.219" endtime="20230213 23:34:46.333"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.217" endtime="20230213 23:34:46.333"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.217" endtime="20230213 23:34:46.333"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:46.217" endtime="20230213 23:34:46.333"/>
+</if>
+<kw name="Click on the Sign in button" library="common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SIGNINBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:46.335" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:46.334" endtime="20230213 23:34:46.410"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.333" endtime="20230213 23:34:46.410"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:44.354" endtime="20230213 23:34:46.410"/>
+</kw>
+<kw name="Assert dashboard">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PAGELOGO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:46.411" endtime="20230213 23:34:47.506"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:47.512" level="INFO">Page title is 'Scouts panel'.</msg>
+<status status="PASS" starttime="20230213 23:34:47.506" endtime="20230213 23:34:47.513"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:46.411" endtime="20230213 23:34:47.513"/>
+</kw>
+<kw name="Click add player link">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDPLAYERBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:47.515" level="INFO">Clicking element 'xpath=(//div[@class='MuiCardContent-root'])[2]/a/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:47.514" endtime="20230213 23:34:47.565"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:47.514" endtime="20230213 23:34:47.565"/>
+</kw>
+<kw name="Fill player info">
+<arg>${PLAYERINFO}</arg>
+<kw name="Fill player email">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'email' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:47.567" endtime="20230213 23:34:47.568"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<arg>${player.email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:47.568" endtime="20230213 23:34:47.568"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:47.567" endtime="20230213 23:34:47.568"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:47.567" endtime="20230213 23:34:47.568"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:47.566" endtime="20230213 23:34:47.568"/>
+</kw>
+<kw name="Fill player name">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'name' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:47.569" endtime="20230213 23:34:48.661"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<arg>${player.name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:48.664" level="INFO">Typing text 'PlayerMin01Name' into text field 'xpath=//input[@name='name']'.</msg>
+<status status="PASS" starttime="20230213 23:34:48.661" endtime="20230213 23:34:48.826"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:47.569" endtime="20230213 23:34:48.826"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:47.569" endtime="20230213 23:34:48.827"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:47.568" endtime="20230213 23:34:48.827"/>
+</kw>
+<kw name="Fill player surname">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'surname' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SURNAME INPUT}</arg>
+<arg>${player.surname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:48.829" level="INFO">Typing text 'PlayerMin01Surname' into text field 'xpath=//input[@name='surname']'.</msg>
+<status status="PASS" starttime="20230213 23:34:48.828" endtime="20230213 23:34:48.989"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:48.827" endtime="20230213 23:34:48.989"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:48.827" endtime="20230213 23:34:48.989"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:48.827" endtime="20230213 23:34:48.989"/>
+</kw>
+<kw name="Fill player phone">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'phone' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PHONE INPUT}</arg>
+<arg>${player.phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:48.990" endtime="20230213 23:34:48.990"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:48.990" endtime="20230213 23:34:48.990"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:48.990" endtime="20230213 23:34:48.990"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:48.989" endtime="20230213 23:34:48.991"/>
+</kw>
+<kw name="Fill player weight">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'weight' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEIGHT INPUT}</arg>
+<arg>${player.weight}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:48.991" endtime="20230213 23:34:48.992"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:48.991" endtime="20230213 23:34:48.992"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:48.991" endtime="20230213 23:34:48.992"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:48.991" endtime="20230213 23:34:48.992"/>
+</kw>
+<kw name="Fill player height">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'height' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${HEIGHT INPUT}</arg>
+<arg>${player.height}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:48.993" endtime="20230213 23:34:48.993"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:48.992" endtime="20230213 23:34:48.993"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:48.992" endtime="20230213 23:34:48.993"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:48.992" endtime="20230213 23:34:48.993"/>
+</kw>
+<kw name="Fill player age">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'age' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${AGE INPUT}</arg>
+<arg>${player.age}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:48.996" level="INFO">Typing text '02/25/1990' into text field 'xpath=//input[@name='age']'.</msg>
+<status status="PASS" starttime="20230213 23:34:48.994" endtime="20230213 23:34:49.093"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:48.994" endtime="20230213 23:34:49.093"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:48.994" endtime="20230213 23:34:49.093"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:48.993" endtime="20230213 23:34:49.093"/>
+</kw>
+<kw name="Fill player leg">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'leg' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG SELECT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.leg}&quot; == &quot;${LEFT LEG EN}&quot; or &quot;${player.leg}&quot; == &quot;${LEFT LEG PL}&quot;">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU LEFT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU RIGHT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</branch>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</if>
+<status status="NOT RUN" starttime="20230213 23:34:49.095" endtime="20230213 23:34:49.095"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.094" endtime="20230213 23:34:49.095"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.093" endtime="20230213 23:34:49.096"/>
+</kw>
+<kw name="Fill player club">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'club' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CLUB INPUT}</arg>
+<arg>${player.club}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.097" endtime="20230213 23:34:49.097"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.096" endtime="20230213 23:34:49.097"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.096" endtime="20230213 23:34:49.097"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.096" endtime="20230213 23:34:49.097"/>
+</kw>
+<kw name="Fill player level">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'level' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LEVEL INPUT}</arg>
+<arg>${player.level}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.098" endtime="20230213 23:34:49.098"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.098" endtime="20230213 23:34:49.098"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.098" endtime="20230213 23:34:49.098"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.097" endtime="20230213 23:34:49.099"/>
+</kw>
+<kw name="Fill player main position">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'mainPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${MAINPOS INPUT}</arg>
+<arg>${player.mainPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:49.101" level="INFO">Typing text 'playerMin01MainPosition' into text field 'xpath=//input[@name='mainPosition']'.</msg>
+<status status="PASS" starttime="20230213 23:34:49.099" endtime="20230213 23:34:49.256"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:49.099" endtime="20230213 23:34:49.257"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.099" endtime="20230213 23:34:49.257"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.099" endtime="20230213 23:34:49.257"/>
+</kw>
+<kw name="Fill player secondPosition">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'secondPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SECONDPOSITION INPUT}</arg>
+<arg>${player.secondPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.258" endtime="20230213 23:34:49.258"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.257" endtime="20230213 23:34:49.258"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.257" endtime="20230213 23:34:49.258"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.257" endtime="20230213 23:34:49.258"/>
+</kw>
+<kw name="Fill player achievements">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'achievements' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ARCHIEVEMENTS INPUT}</arg>
+<arg>${player.achievements}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.259" endtime="20230213 23:34:49.259"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.259" endtime="20230213 23:34:49.259"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.259" endtime="20230213 23:34:49.259"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.258" endtime="20230213 23:34:49.260"/>
+</kw>
+<kw name="Fill player youtubes">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'youtubes' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.261" endtime="20230213 23:34:49.262"/>
+</kw>
+<for flavor="IN">
+<var>${youtube}</var>
+<value>@{player.youtubes}</value>
+<iter>
+<var name="${youtube}"/>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD YOUTUBE BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='webYT[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${youtube}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</iter>
+<status status="NOT RUN" starttime="20230213 23:34:49.262" endtime="20230213 23:34:49.262"/>
+</for>
+<status status="NOT RUN" starttime="20230213 23:34:49.260" endtime="20230213 23:34:49.262"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.260" endtime="20230213 23:34:49.262"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.260" endtime="20230213 23:34:49.263"/>
+</kw>
+<kw name="Fill player languages">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'languages' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.264" endtime="20230213 23:34:49.264"/>
+</kw>
+<for flavor="IN">
+<var>${languages}</var>
+<value>@{player.languages}</value>
+<iter>
+<var name="${languages}"/>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD LANG BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.264" endtime="20230213 23:34:49.264"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='languages[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.264" endtime="20230213 23:34:49.265"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.265" endtime="20230213 23:34:49.265"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${languages}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.265" endtime="20230213 23:34:49.265"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.265" endtime="20230213 23:34:49.265"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.264" endtime="20230213 23:34:49.265"/>
+</iter>
+<status status="NOT RUN" starttime="20230213 23:34:49.264" endtime="20230213 23:34:49.265"/>
+</for>
+<status status="NOT RUN" starttime="20230213 23:34:49.263" endtime="20230213 23:34:49.265"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.263" endtime="20230213 23:34:49.265"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.263" endtime="20230213 23:34:49.266"/>
+</kw>
+<kw name="Fill player district">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'district' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT TO CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.267" endtime="20230213 23:34:49.267"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.district}&quot; == &quot;${SILESIA}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.267" endtime="20230213 23:34:49.267"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.267" endtime="20230213 23:34:49.267"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.267" endtime="20230213 23:34:49.267"/>
+</branch>
+<status status="NOT RUN" starttime="20230213 23:34:49.267" endtime="20230213 23:34:49.267"/>
+</if>
+<status status="NOT RUN" starttime="20230213 23:34:49.266" endtime="20230213 23:34:49.267"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.266" endtime="20230213 23:34:49.267"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.266" endtime="20230213 23:34:49.268"/>
+</kw>
+<kw name="Fill player web laczy">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webLaczy' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB LACZY INPUT}</arg>
+<arg>${player.webLaczy}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.268" endtime="20230213 23:34:49.269"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.268" endtime="20230213 23:34:49.269"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.268" endtime="20230213 23:34:49.269"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.268" endtime="20230213 23:34:49.269"/>
+</kw>
+<kw name="Fill player web90">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'web90' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB90 INPUT}</arg>
+<arg>${player.web90}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.270" endtime="20230213 23:34:49.270"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.269" endtime="20230213 23:34:49.270"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.269" endtime="20230213 23:34:49.270"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.269" endtime="20230213 23:34:49.270"/>
+</kw>
+<kw name="Fill player webFB">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webFB' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEBFB INPUT}</arg>
+<arg>${player.webFB}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:49.271" endtime="20230213 23:34:49.271"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:49.271" endtime="20230213 23:34:49.271"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:49.271" endtime="20230213 23:34:49.271"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:49.270" endtime="20230213 23:34:49.271"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:47.566" endtime="20230213 23:34:49.272"/>
+</kw>
+<kw name="Click On The Submit Button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMITBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:49.273" level="INFO">Clicking element 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:49.273" endtime="20230213 23:34:49.333"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:49.272" endtime="20230213 23:34:49.333"/>
+</kw>
+<kw name="Wait for save be complete">
+<arg>${PLAYERINFO}</arg>
+<arg>alert_TC_PP_02.png</arg>
+<kw name="Catenate" library="BuiltIn">
+<var>${editMessage}</var>
+<arg>Edit player ${player.name} ${player.surname}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20230213 23:34:49.337" level="INFO">${editMessage} = Edit player PlayerMin01Name PlayerMin01Surname</msg>
+<status status="PASS" starttime="20230213 23:34:49.334" endtime="20230213 23:34:49.337"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ALERT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:49.337" endtime="20230213 23:34:49.797"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${PAGETITLE}</arg>
+<arg>${editMessage}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230213 23:34:49.799" level="INFO">Verifying element 'xpath=//form/div[1]/div/span' contains exact text 'Edit player PlayerMin01Name PlayerMin01Surname'.</msg>
+<status status="PASS" starttime="20230213 23:34:49.797" endtime="20230213 23:34:49.827"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${screenshotName}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230213 23:34:49.979" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="alert_TC_PP_02.png"&gt;&lt;img src="alert_TC_PP_02.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230213 23:34:49.827" endtime="20230213 23:34:49.979"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:49.334" endtime="20230213 23:34:49.979"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230213 23:34:49.980" endtime="20230213 23:34:52.133"/>
+</kw>
+<doc>Test for checking adding a player with entering a minimum of information (English version)</doc>
+<status status="PASS" starttime="20230213 23:34:44.350" endtime="20230213 23:34:52.135"/>
+</test>
+<test id="s1-t3" name="Error on add player with no required info" line="87">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{PLAYERINFO}</var>
+<arg>name=PlayerNoSave01Name</arg>
+<arg>surname=PlayerNoSave01Surname</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230213 23:34:52.140" level="INFO">&amp;{PLAYERINFO} = { name=PlayerNoSave01Name | surname=PlayerNoSave01Surname }</msg>
+<status status="PASS" starttime="20230213 23:34:52.139" endtime="20230213 23:34:52.140"/>
+</kw>
+<kw name="Loggin in" library="common">
+<arg>${DEFAULTUSER}</arg>
+<kw name="Open login page" library="common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230213 23:34:52.142" level="INFO">Opening browser 'CHROME' to base url 'https://scouts-test.futbolkolektyw.pl/en'.</msg>
+<status status="PASS" starttime="20230213 23:34:52.141" endtime="20230213 23:34:54.987"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel - sign in</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:54.997" level="INFO">Page title is 'Scouts panel - sign in'.</msg>
+<status status="PASS" starttime="20230213 23:34:54.987" endtime="20230213 23:34:54.997"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:52.141" endtime="20230213 23:34:54.997"/>
+</kw>
+<if>
+<branch type="IF" condition="'login' in $user">
+<kw name="Type in email" library="common">
+<arg>${user.login}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id:login</arg>
+<arg>${login}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:55.001" level="INFO">Typing text 'user07@getnada.com' into text field 'id:login'.</msg>
+<status status="PASS" starttime="20230213 23:34:55.000" endtime="20230213 23:34:55.172"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:54.998" endtime="20230213 23:34:55.173"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:54.997" endtime="20230213 23:34:55.173"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:54.997" endtime="20230213 23:34:55.173"/>
+</if>
+<if>
+<branch type="IF" condition="'password' in $user">
+<kw name="Type in password" library="common">
+<arg>${user.password}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id:password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:55.175" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg timestamp="20230213 23:34:55.222" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230213 23:34:55.306" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230213 23:34:55.174" endtime="20230213 23:34:55.306"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:55.174" endtime="20230213 23:34:55.306"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:55.174" endtime="20230213 23:34:55.306"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:55.173" endtime="20230213 23:34:55.306"/>
+</if>
+<kw name="Click on the Sign in button" library="common">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SIGNINBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:55.306" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:55.306" endtime="20230213 23:34:55.381"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:55.306" endtime="20230213 23:34:55.381"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:52.140" endtime="20230213 23:34:55.381"/>
+</kw>
+<kw name="Assert dashboard">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PAGELOGO}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:55.382" endtime="20230213 23:34:56.468"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Scouts panel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230213 23:34:56.472" level="INFO">Page title is 'Scouts panel'.</msg>
+<status status="PASS" starttime="20230213 23:34:56.468" endtime="20230213 23:34:56.472"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:55.382" endtime="20230213 23:34:56.472"/>
+</kw>
+<kw name="Click add player link">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ADDPLAYERBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:56.474" level="INFO">Clicking element 'xpath=(//div[@class='MuiCardContent-root'])[2]/a/button'.</msg>
+<status status="PASS" starttime="20230213 23:34:56.474" endtime="20230213 23:34:56.526"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:56.473" endtime="20230213 23:34:56.526"/>
+</kw>
+<kw name="Fill player info">
+<arg>${PLAYERINFO}</arg>
+<kw name="Fill player email">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'email' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:56.527" endtime="20230213 23:34:56.527"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${EMAIL INPUT}</arg>
+<arg>${player.email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:56.527" endtime="20230213 23:34:56.527"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:56.527" endtime="20230213 23:34:56.527"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:56.527" endtime="20230213 23:34:56.527"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:56.527" endtime="20230213 23:34:56.527"/>
+</kw>
+<kw name="Fill player name">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'name' in $player">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:56.528" endtime="20230213 23:34:57.603"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${NAME INPUT}</arg>
+<arg>${player.name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:57.604" level="INFO">Typing text 'PlayerNoSave01Name' into text field 'xpath=//input[@name='name']'.</msg>
+<status status="PASS" starttime="20230213 23:34:57.603" endtime="20230213 23:34:57.746"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:56.528" endtime="20230213 23:34:57.746"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:56.528" endtime="20230213 23:34:57.746"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:56.527" endtime="20230213 23:34:57.746"/>
+</kw>
+<kw name="Fill player surname">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'surname' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SURNAME INPUT}</arg>
+<arg>${player.surname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:57.747" level="INFO">Typing text 'PlayerNoSave01Surname' into text field 'xpath=//input[@name='surname']'.</msg>
+<status status="PASS" starttime="20230213 23:34:57.747" endtime="20230213 23:34:57.918"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:57.746" endtime="20230213 23:34:57.918"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.746" endtime="20230213 23:34:57.918"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.746" endtime="20230213 23:34:57.918"/>
+</kw>
+<kw name="Fill player phone">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'phone' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PHONE INPUT}</arg>
+<arg>${player.phone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.919" endtime="20230213 23:34:57.919"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.919" endtime="20230213 23:34:57.919"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.919" endtime="20230213 23:34:57.919"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.919" endtime="20230213 23:34:57.919"/>
+</kw>
+<kw name="Fill player weight">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'weight' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEIGHT INPUT}</arg>
+<arg>${player.weight}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.920" endtime="20230213 23:34:57.920"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.920" endtime="20230213 23:34:57.920"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.920" endtime="20230213 23:34:57.920"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.920" endtime="20230213 23:34:57.921"/>
+</kw>
+<kw name="Fill player height">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'height' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${HEIGHT INPUT}</arg>
+<arg>${player.height}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.921" endtime="20230213 23:34:57.922"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.921" endtime="20230213 23:34:57.922"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.921" endtime="20230213 23:34:57.922"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.921" endtime="20230213 23:34:57.922"/>
+</kw>
+<kw name="Fill player age">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'age' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${AGE INPUT}</arg>
+<arg>${player.age}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.923" endtime="20230213 23:34:57.923"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.923" endtime="20230213 23:34:57.923"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.922" endtime="20230213 23:34:57.923"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.922" endtime="20230213 23:34:57.923"/>
+</kw>
+<kw name="Fill player leg">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'leg' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG SELECT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.924"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.leg}&quot; == &quot;${LEFT LEG EN}&quot; or &quot;${player.leg}&quot; == &quot;${LEFT LEG PL}&quot;">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU LEFT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.924"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.924"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LEG MENU RIGHT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.924"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.924"/>
+</branch>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.925"/>
+</if>
+<status status="NOT RUN" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.925"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.924" endtime="20230213 23:34:57.925"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.923" endtime="20230213 23:34:57.925"/>
+</kw>
+<kw name="Fill player club">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'club' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CLUB INPUT}</arg>
+<arg>${player.club}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</kw>
+<kw name="Fill player level">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'level' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LEVEL INPUT}</arg>
+<arg>${player.level}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.925"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.925" endtime="20230213 23:34:57.926"/>
+</kw>
+<kw name="Fill player main position">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'mainPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${MAINPOS INPUT}</arg>
+<arg>${player.mainPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</kw>
+<kw name="Fill player secondPosition">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'secondPosition' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SECONDPOSITION INPUT}</arg>
+<arg>${player.secondPosition}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.926"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.926" endtime="20230213 23:34:57.927"/>
+</kw>
+<kw name="Fill player achievements">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'achievements' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ARCHIEVEMENTS INPUT}</arg>
+<arg>${player.achievements}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.928" endtime="20230213 23:34:57.928"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.927" endtime="20230213 23:34:57.928"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.927" endtime="20230213 23:34:57.928"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.927" endtime="20230213 23:34:57.928"/>
+</kw>
+<kw name="Fill player youtubes">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'youtubes' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.929" endtime="20230213 23:34:57.929"/>
+</kw>
+<for flavor="IN">
+<var>${youtube}</var>
+<value>@{player.youtubes}</value>
+<iter>
+<var name="${youtube}"/>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD YOUTUBE BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.929" endtime="20230213 23:34:57.929"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='webYT[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.929" endtime="20230213 23:34:57.930"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.930"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${youtube}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.930"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.930"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.929" endtime="20230213 23:34:57.930"/>
+</iter>
+<status status="NOT RUN" starttime="20230213 23:34:57.929" endtime="20230213 23:34:57.930"/>
+</for>
+<status status="NOT RUN" starttime="20230213 23:34:57.928" endtime="20230213 23:34:57.930"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.928" endtime="20230213 23:34:57.930"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.928" endtime="20230213 23:34:57.930"/>
+</kw>
+<kw name="Fill player languages">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'languages' in $player">
+<kw name="Set Variable" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<for flavor="IN">
+<var>${languages}</var>
+<value>@{player.languages}</value>
+<iter>
+<var name="${languages}"/>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${ADD LANG BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${link}</var>
+<arg>//input[@name='languages[${index}]']</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${link}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${link}</arg>
+<arg>${languages}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${index}</var>
+<arg>${index} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</iter>
+<status status="NOT RUN" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.931"/>
+</for>
+<status status="NOT RUN" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.931"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.931"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.930" endtime="20230213 23:34:57.931"/>
+</kw>
+<kw name="Fill player district">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'district' in $player">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT TO CLICK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${player.district}&quot; == &quot;${SILESIA}&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${DISTRICT SILESIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</branch>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</if>
+<status status="NOT RUN" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.932"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.931" endtime="20230213 23:34:57.932"/>
+</kw>
+<kw name="Fill player web laczy">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webLaczy' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB LACZY INPUT}</arg>
+<arg>${player.webLaczy}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.932" endtime="20230213 23:34:57.933"/>
+</kw>
+<kw name="Fill player web90">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'web90' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEB90 INPUT}</arg>
+<arg>${player.web90}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.933"/>
+</kw>
+<kw name="Fill player webFB">
+<arg>${player}</arg>
+<if>
+<branch type="IF" condition="'webFB' in $player">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${WEBFB INPUT}</arg>
+<arg>${player.webFB}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230213 23:34:57.934" endtime="20230213 23:34:57.934"/>
+</kw>
+<status status="NOT RUN" starttime="20230213 23:34:57.934" endtime="20230213 23:34:57.934"/>
+</branch>
+<status status="PASS" starttime="20230213 23:34:57.934" endtime="20230213 23:34:57.934"/>
+</if>
+<status status="PASS" starttime="20230213 23:34:57.933" endtime="20230213 23:34:57.934"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:56.527" endtime="20230213 23:34:57.934"/>
+</kw>
+<kw name="Click On The Submit Button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMITBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:57.935" level="INFO">Clicking element 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:57.935" endtime="20230213 23:34:58.024"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:57.934" endtime="20230213 23:34:58.024"/>
+</kw>
+<kw name="Click On The Submit Button">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SUBMITBUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230213 23:34:58.026" level="INFO">Clicking element 'xpath=//*[@type='submit']'.</msg>
+<status status="PASS" starttime="20230213 23:34:58.026" endtime="20230213 23:34:58.081"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:58.025" endtime="20230213 23:34:58.081"/>
+</kw>
+<kw name="Check for error appear">
+<arg>alert_TC_PP_03.png</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${REQUIRED MARK}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230213 23:34:58.082" endtime="20230213 23:34:58.107"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${PAGETITLE}</arg>
+<arg>Add player</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230213 23:34:58.108" level="INFO">Verifying element 'xpath=//form/div[1]/div/span' contains exact text 'Add player'.</msg>
+<status status="PASS" starttime="20230213 23:34:58.107" endtime="20230213 23:34:58.130"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>${screenshotName}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230213 23:34:58.357" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="alert_TC_PP_03.png"&gt;&lt;img src="alert_TC_PP_03.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230213 23:34:58.130" endtime="20230213 23:34:58.357"/>
+</kw>
+<status status="PASS" starttime="20230213 23:34:58.081" endtime="20230213 23:34:58.357"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230213 23:34:58.357" endtime="20230213 23:35:00.500"/>
+</kw>
+<doc>Test for checking adding a player with entering a minimum of information (English version)</doc>
+<status status="PASS" starttime="20230213 23:34:52.138" endtime="20230213 23:35:00.500"/>
+</test>
+<doc>Suit description #automated test for scout website</doc>
+<status status="PASS" starttime="20230213 23:34:33.242" endtime="20230213 23:35:00.504"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Test Add Player Rf">Test Add Player Rf</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
