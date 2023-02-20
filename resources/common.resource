@@ -3,9 +3,9 @@ Documentation    resource file
 Library    SeleniumLibrary
 
 *** Variables ***
-${LOGIN URL}    https://scouts-test.futbolkolektyw.pl/en
+${LOGIN URL}    https://scouts.futbolkolektyw.pl/en/
 ${BROWSER}      CHROME
-${SIGNINBUTTON}     xpath=//button[@type='submit']
+${SIGNINBUTTON}     xpath=//button[@type='submit']/span
 ${PAGELOGO}     xpath=//*[@id="__next"]/div[1]/main/div[3]/div[1]/div/div[1]
 &{DEFAULTUSER}  login=user07@getnada.com  password=Test-1234
 
